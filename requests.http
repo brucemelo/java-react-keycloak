@@ -1,0 +1,29 @@
+###
+POST http://localhost:8080/realms/master/protocol/openid-connect/token
+Content-Type: application/x-www-form-urlencoded
+
+username = admin1 &
+password = admin1 &
+grant_type = password &
+client_id = admin-cli
+
+> {%
+client.global.set("token1", response.body.access_token)
+console.log(response.body.access_token)
+%}
+
+###
+POST http://localhost:8080/admin/realms/master/clients
+Authorization: Bearer {{token1}}
+Content-Type: application/json
+
+{
+  "clientId": "my-client",
+  "directAccessGrantsEnabled": true,
+  "publicClient": true,
+  "redirectUris": ["http://localhost:5173/*"],
+  "webOrigins": ["http://localhost:5173"]
+
+}
+###
+
