@@ -7,8 +7,6 @@ import io.micronaut.security.authentication.Authentication;
 import io.micronaut.security.rules.SecurityRule;
 import io.micronaut.serde.annotation.Serdeable;
 
-import java.util.UUID;
-
 @Controller("/users")
 @Secured(SecurityRule.IS_AUTHENTICATED)
 public class UserController {

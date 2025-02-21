@@ -16,7 +16,6 @@ export const setupAxiosInterceptors = (auth: AuthContextProps) => {
         (error) => {
             if (error.response) {
                 if (error.response.status === 401) {
-                    console.log(auth);
                     if (!auth.isLoading && !auth.isAuthenticated || auth.isAuthenticated && auth.user?.expired) {
                         void auth.signinRedirect();
                     }

@@ -9,7 +9,7 @@ import {AppUserProvider} from "./AppUserContext.tsx";
 
 const oidcConfig = {
     authority: "http://localhost:8080/realms/master",
-    client_id: "myclient",
+    client_id: "my-client",
     redirect_uri: window.location.origin,
 };
 
