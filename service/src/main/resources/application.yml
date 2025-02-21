@@ -1,0 +1,15 @@
+micronaut:
+  application:
+    name: service
+  server:
+    context-path: /api
+    port: 8081
+    cors:
+      enabled: true
+  security:
+    token:
+      jwt:
+        signatures:
+          jwks:
+            keycloak:
+              url: http://localhost:8080/realms/master/protocol/openid-connect/certs
