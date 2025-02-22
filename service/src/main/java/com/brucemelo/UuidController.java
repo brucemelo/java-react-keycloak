@@ -13,7 +13,7 @@ import java.util.UUID;
 public class UuidController {
 
     @Get
-    public String uuid(Authentication authentication) {
+    String uuid(Authentication authentication) {
         System.out.println(authentication.getName()); //Subject
         return UUID.randomUUID().toString();
     }
